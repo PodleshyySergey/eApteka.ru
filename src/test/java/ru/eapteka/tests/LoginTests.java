@@ -32,11 +32,9 @@ public class LoginTests extends TestBase {
         step("Обращение к \"Войти\"", ()-> {
             $(".modal-content").$(byText("Войти")).click();
         });
-
         step("Проверка отображения ссылки для перехода в Личный кабинет", ()-> {
             $("[href=\"/personal/\"]").shouldHave(text("Личный кабинет"));
         });
-
         step("Выход из учетной записи", ()-> {
             $(byText("Выход")).click();
         });
@@ -60,7 +58,6 @@ public class LoginTests extends TestBase {
         step("Обращение к \"Войти\"", ()-> {
             $(".modal-content").$(byText("Войти")).click();
         });
-
         step("Проверка отображения сообщения валидатора \"Неверная почта или пароль\".", ()-> {
             $(byText("Неверная почта или пароль")).shouldBe(visible);
         });
@@ -84,7 +81,6 @@ public class LoginTests extends TestBase {
         step("Обращение к \"Войти\"", ()-> {
             $(".modal-content").$(byText("Войти")).click();
         });
-
         step("Проверка отображения сообщения валидатора \"Неверная почта или пароль\".", ()-> {
             $(byText("Неверная почта или пароль")).shouldBe(visible);
         });

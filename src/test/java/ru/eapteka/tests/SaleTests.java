@@ -4,7 +4,6 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selectors.byName;
@@ -36,7 +35,6 @@ public class SaleTests extends TestBase {
         step("Обращение к \"Войти\"", ()-> {
             $(".modal-content").$(byText("Войти")).click();
         });
-
         step("Ввод поисковоо запроса \"арбидлол\" и нажатие \"Enter\".", ()-> {
             $(byName("q")).val("арбидол").pressEnter();
         });

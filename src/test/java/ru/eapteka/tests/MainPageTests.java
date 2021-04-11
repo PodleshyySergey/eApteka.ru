@@ -1,15 +1,13 @@
 package ru.eapteka.tests;
 
-import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
@@ -25,7 +23,6 @@ public class MainPageTests extends TestBase {
         step("Открытие главной страницы \"https://www.eapteka.ru/\"", () -> {
             open("https://www.eapteka.ru/");
         });
-
         step("Проверка лога консоли на отсутствие ошибок (SEVERE)", () -> {
             String consoleLogs = getConsoleLogs();
             assertThat(consoleLogs, not(containsString("SEVERE")));
