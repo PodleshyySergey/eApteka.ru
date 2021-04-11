@@ -10,6 +10,7 @@ public class TestBase {
         Configuration.startMaximized = true;
         Configuration.baseUrl = "https://www.eapteka.ru/";
         Configuration.browser = "chrome";
+        Configuration.timeout = 10000;
     }
 
 }

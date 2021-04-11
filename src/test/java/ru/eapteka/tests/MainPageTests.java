@@ -4,7 +4,10 @@ import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -61,6 +64,19 @@ public class MainPageTests extends TestBase {
         });
         step("Проверка отображения категории \"Медтехника\" на главное странице", ()-> {
             $("[data-scroll='xlg']").$(byText("Медтехника")).shouldBe(visible);
+        });
+    }
+
+    @Test
+    void searchTest() {
+        step("Открытие главной страницы \"https://www.eapteka.ru/\"", ()-> {
+            open(getWebUrl());
+        });
+        step("Ввод поисковоо запроса \"глицин\" и нажатие \"Enter\".", ()-> {
+            $(byName("q")).val("глицин").pressEnter();
+        });
+        step("Проверка того, что количество результатов поиска больше нуля.", ()-> {
+            $("[data-neon-alias='search_page']").$$(".cc-item").shouldHave(sizeGreaterThan(0));
         });
     }
 
