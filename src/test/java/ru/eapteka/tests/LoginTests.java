@@ -26,11 +26,11 @@ public class LoginTests extends TestBase {
             $(byText("Войти по почте")).click();
         });
         step("Ввод почты и пароля", ()-> {
-            $(byName("email")).setValue(getEaptekaMail());
-            $(byName("password")).setValue(getEaptekaPassword());
+            $(byName("email")).sendKeys(getEaptekaMail());
+            $(byName("password")).sendKeys(getEaptekaPassword());
         });
         step("Обращение к \"Войти\"", ()-> {
-            $(byText("Войти")).click();
+            $(".modal-content").$(byText("Войти")).click();
         });
 
         step("Проверка отображения ссылки для перехода в Личный кабинет", ()-> {
@@ -58,7 +58,7 @@ public class LoginTests extends TestBase {
             $(byName("password")).setValue(getEaptekaPassword());
         });
         step("Обращение к \"Войти\"", ()-> {
-            $(byText("Войти")).click();
+            $(".modal-content").$(byText("Войти")).click();
         });
 
         step("Проверка отображения сообщения валидатора \"Неверная почта или пароль\".", ()-> {
@@ -82,7 +82,7 @@ public class LoginTests extends TestBase {
             $(byName("password")).setValue("Password123");
         });
         step("Обращение к \"Войти\"", ()-> {
-            $(byText("Войти")).click();
+            $(".modal-content").$(byText("Войти")).click();
         });
 
         step("Проверка отображения сообщения валидатора \"Неверная почта или пароль\".", ()-> {
